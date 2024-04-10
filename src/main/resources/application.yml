@@ -1,0 +1,16 @@
+spring:
+  profiles:
+    # Use "dev" for connection to h2 in-memory database
+    active:
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring_security_db?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: secret
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: update
+token:
+  signing:
+    key: 413F4428472B4B6250655368566D5970337336763979244226452948404D6351
