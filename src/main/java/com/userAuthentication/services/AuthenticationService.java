@@ -6,7 +6,7 @@ import com.userAuthentication.dtos.response.JwtAuthenticationResponse;
 
 public interface AuthenticationService {
 
-    JwtAuthenticationResponse signup(SignUpRequestDto request);
+    JwtAuthenticationResponse signUp(SignUpRequestDto request);
 
-    JwtAuthenticationResponse signin(SignInRequestDto request);
+    JwtAuthenticationResponse signIn(SignInRequestDto request);
 }
