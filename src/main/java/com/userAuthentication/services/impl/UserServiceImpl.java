@@ -1,6 +1,6 @@
 package com.userAuthentication.services.impl;
 
-import com.userAuthentication.dtos.response.UserDto;
+import com.userAuthentication.dtos.response.UserDtoResponse;
 import com.userAuthentication.repository.UserRepository;
 import com.userAuthentication.services.UserService;
 import lombok.RequiredArgsConstructor;
@@ -29,10 +29,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional(readOnly = true)
-    public UserDto findByEmail(String email) {
+    public UserDtoResponse findByEmail(String email) {
         var user = userRepository.findByEmail(email).orElseThrow();
 
-        return UserDto.builder()
+        return UserDtoResponse.builder()
                 .id(user.getId())
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())

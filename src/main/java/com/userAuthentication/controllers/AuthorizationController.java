@@ -1,6 +1,6 @@
 package com.userAuthentication.controllers;
 
-import com.userAuthentication.dtos.response.UserDto;
+import com.userAuthentication.dtos.response.UserDtoResponse;
 import com.userAuthentication.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +14,7 @@ public class AuthorizationController {
     private final UserService userService;
 
     @GetMapping
-    public ResponseEntity<UserDto> findByEmail(@RequestBody UserDto userDto) {
-        return ResponseEntity.ok(userService.findByEmail(userDto.getEmail()));
+    public ResponseEntity<UserDtoResponse> findByEmail(@RequestBody UserDtoResponse userDtoResponse) {
+        return ResponseEntity.ok(userService.findByEmail(userDtoResponse.email()));
     }
 }
