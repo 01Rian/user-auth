@@ -1,15 +1,13 @@
-package com.userAuthentication.services;
+package com.userAuthentication.services.admin;
 
 import com.userAuthentication.dtos.request.SignUpRequestDto;
 import com.userAuthentication.dtos.response.UserDtoResponse;
 
 import java.util.Collection;
 
-public interface UserService {
+public interface AdminService {
 
     UserDtoResponse findByEmail(String email);
-
-    UserDtoResponse authenticatedUser();
 
     Collection<UserDtoResponse> findAll();
 

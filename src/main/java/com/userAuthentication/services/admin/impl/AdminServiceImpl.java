@@ -1,13 +1,11 @@
-package com.userAuthentication.services.impl;
+package com.userAuthentication.services.admin.impl;
 
 import com.userAuthentication.dtos.request.SignUpRequestDto;
 import com.userAuthentication.dtos.response.UserDtoResponse;
 import com.userAuthentication.entities.User;
 import com.userAuthentication.repository.UserRepository;
-import com.userAuthentication.services.UserService;
+import com.userAuthentication.services.admin.AdminService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,9 +13,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Collection;
 import java.util.Objects;
 
-@RequiredArgsConstructor
 @Service
-public class UserServiceImpl implements UserService {
+@RequiredArgsConstructor
+public class AdminServiceImpl implements AdminService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
@@ -37,23 +35,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional(readOnly = true)
-    public UserDtoResponse authenticatedUser() {
-        Authentication userAuth = SecurityContextHolder.getContext().getAuthentication();
-
-        User currentUser = (User) userAuth.getPrincipal();
-
-        return UserDtoResponse.builder()
-                .id(currentUser.getId())
-                .firstName(currentUser.getFirstName())
-                .lastName(currentUser.getLastName())
-                .email(currentUser.getEmail())
-                .build();
-    }
-
-    @Override
-    @Transactional(readOnly = true)
     public Collection<UserDtoResponse> findAll() {
-        Collection<UserDtoResponse> users = userRepository.findAll()
+        return userRepository.findAll()
                 .stream()
                 .map(user -> UserDtoResponse.builder()
                         .id(user.getId())
@@ -62,8 +45,6 @@ public class UserServiceImpl implements UserService {
                         .email(user.getEmail())
                         .build()
                 ).toList();
-
-        return users;
     }
 
     @Override
