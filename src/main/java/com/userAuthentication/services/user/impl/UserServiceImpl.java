@@ -60,7 +60,7 @@ public class UserServiceImpl implements UserService {
         currentUser.setLastName(Objects.requireNonNullElse(dto.lastName(), currentUser.getLastName()));
         currentUser.setEmail(Objects.requireNonNullElse(dto.email(), currentUser.getEmail()));
         currentUser.setPassword(Objects.requireNonNullElse(passwordEncoder.encode(dto.password()), currentUser.getPassword()));
-        currentUser.setRole(Objects.requireNonNullElse(dto.role(), currentUser.getRole()));
+        currentUser.setRole(currentUser.getRole());
     }
 
     @Override
