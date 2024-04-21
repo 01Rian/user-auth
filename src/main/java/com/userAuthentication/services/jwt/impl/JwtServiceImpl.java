@@ -1,9 +1,8 @@
-package com.userAuthentication.services.impl;
+package com.userAuthentication.services.jwt.impl;
 
-import com.userAuthentication.services.JwtService;
+import com.userAuthentication.services.jwt.JwtService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;

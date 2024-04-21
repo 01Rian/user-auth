@@ -1,4 +1,4 @@
-package com.userAuthentication.services.impl;
+package com.userAuthentication.services.auth.impl;
 
 import com.userAuthentication.dtos.request.SignUpRequestDto;
 import com.userAuthentication.dtos.request.SignInRequestDto;
@@ -6,8 +6,8 @@ import com.userAuthentication.dtos.response.JwtAuthenticationResponse;
 import com.userAuthentication.entities.Role;
 import com.userAuthentication.entities.User;
 import com.userAuthentication.repository.UserRepository;
-import com.userAuthentication.services.AuthenticationService;
-import com.userAuthentication.services.JwtService;
+import com.userAuthentication.services.auth.AuthenticationService;
+import com.userAuthentication.services.jwt.JwtService;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.security.authentication.AuthenticationManager;

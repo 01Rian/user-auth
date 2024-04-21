@@ -1,4 +1,4 @@
-package com.userAuthentication.services;
+package com.userAuthentication.services.jwt;
 
 import org.springframework.security.core.userdetails.UserDetails;
 

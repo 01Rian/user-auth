@@ -1,4 +1,4 @@
-package com.userAuthentication.services;
+package com.userAuthentication.services.auth;
 
 import com.userAuthentication.dtos.request.SignUpRequestDto;
 import com.userAuthentication.dtos.request.SignInRequestDto;

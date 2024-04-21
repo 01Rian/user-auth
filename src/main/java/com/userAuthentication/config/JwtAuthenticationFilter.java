@@ -1,6 +1,6 @@
 package com.userAuthentication.config;
 
-import com.userAuthentication.services.JwtService;
+import com.userAuthentication.services.jwt.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
