@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.net.URI;
+
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/v1/auth")
@@ -20,7 +22,8 @@ public class AuthenticationController {
 
     @PostMapping("/signup")
     public ResponseEntity<JwtAuthenticationResponse> signUp(@RequestBody SignUpRequestDto requestDto) {
-        return ResponseEntity.ok(authenticationService.signUp(requestDto));
+        URI location = URI.create("/api/v1/auth/" + requestDto.email());
+        return ResponseEntity.created(location).body(authenticationService.signUp(requestDto));
     }
 
     @PostMapping("/signin")
